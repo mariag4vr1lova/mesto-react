@@ -1,4 +1,4 @@
-function PopupImage({card, isOpen, onClose}) {
+function ImagePopup({card, isOpen, onClose}) {
     return(
       <div className={`popup popup_zoom_cards ${isOpen && 'popup_opened'}`}>
         <div className="popup__zoom-container">
@@ -13,4 +13,4 @@ function PopupImage({card, isOpen, onClose}) {
       </div>
     )
 }
-export default PopupImage
+export default ImagePopup
