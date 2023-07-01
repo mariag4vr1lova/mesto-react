@@ -16,7 +16,8 @@ function Main({onEditProfile, onAddPlace, onEditAvatar, onCardClick}) {
                 setUserAvatar(dataUser.avatar)
                 dataCard.forEach(data => data.myid = dataUser._id);  
                 setCards(dataCard)
-            });
+            })
+        .catch((error => console.error('Ошибка при получении данных с сервера о пользователе и карточках' `${error}`)))
     }, [])
     return(
     <main className="content">
