@@ -8,9 +8,12 @@
     font-size: 18px;
     font-weight: 400;
     line-height: 22px;
-    text-align: center;
+    align-self: center;
     margin-top: 13px;
-    transition: opacity 0.5s linear;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90px;
+    transition: background-color 0.5s linear;
     cursor: pointer;
     
 }

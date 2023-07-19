@@ -1,7 +1,18 @@
-function Card({card, onCardClick}) {
+import { useContext } from "react"
+import CurrentUserContext from "../../contexts/CurrentUserContext.js"
+import ButtonLike from "../ButtonLike/ButtonLike.jsx"
+
+function Card({card, onCardClick, onDelete}) {
+    const currentUser = useContext(CurrentUserContext)
     return(
     //<li className="element">
     <article>
+        {currentUser._id === card.owner._id && <button
+            className="element__delete-button"
+            aria-label="Удалить"
+            type="button"
+            onClick={()=> onDelete(card._id)}
+        />}
         <img 
             className="element__image" 
             alt={`Изображение ${card.name}`} 
@@ -9,16 +20,9 @@ function Card({card, onCardClick}) {
             onClick={() => onCardClick({link: card.link, name: card.name})}/>
         <div className="element__block">
             <h2 className="element__title">{card.name}</h2>
-            <div className="element__like-container">
-                <button className="element__like" aria-label="Лайк" type="button" />
-                <p className="element__counter" />
-            </div>
+            <ButtonLike likes ={card.likes} myid={currentUser._id} cardid={card._id}/>
         </div>
-        <button
-            className="element__delete-button"
-            aria-label="Удалить"
-            type="button"
-        />
+    {/*<button className="element__delete-button"aria-label="Удалить"type="button" onClick={onDelete} />*/}
     </article>
     //</li>
 
